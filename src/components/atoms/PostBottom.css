@@ -1,0 +1,7 @@
+.hoverable-col {
+    transition: box-shadow 0.3s;
+}
+
+.hoverable-col:hover {
+    box-shadow: 0 10px 13px rgba(0, 0, 0, 0.5);
+}

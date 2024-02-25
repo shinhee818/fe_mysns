@@ -1,0 +1,35 @@
+body {
+    align-items: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family: Montserrat, Pretendard, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #F8F9FA;
+
+  }
+
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/*특정 부분 스크롤바 없애기*/
+
+.box{
+  -ms-overflow-style: none;
+}
+.box::-webkit-scrollbar{
+  display:none;
+}
