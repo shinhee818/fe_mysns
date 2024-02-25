@@ -7,11 +7,6 @@ import {useMemberContext} from "../api/context/MemberContext";
 import authInstance from "../api/utils/authInstance";
 import {LoadingOutlined, PlusOutlined} from "@ant-design/icons";
 
-const getBase64 = (img, callback) => {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
-    reader.readAsDataURL(img);
-};
 export default function LoginModal({open,onOk,onCancel}){
     const[join,setJoin] = useState(false)
     const [url,setImageUrl] = useState("");
@@ -21,7 +16,6 @@ export default function LoginModal({open,onOk,onCancel}){
     const navigate = useNavigate();
     const{updateMemberData} = useMemberContext();
     const [loading, setLoading] = useState(false);
-    const [imageSrc, setImageSrc] = useState();
 
     const showLoginSuccessModal = () => {
         const secondsToGo = 3;
@@ -48,7 +42,6 @@ export default function LoginModal({open,onOk,onCancel}){
     });
 
     const handleCancel = () => {
-        // x 버튼을 누를 때 호출되는 함수
         setFormData({
             memberName: '',
             age: '',
@@ -57,16 +50,13 @@ export default function LoginModal({open,onOk,onCancel}){
             confirmPassword: '',
             url: '',
         });
-
         setLoginFormData({
             email: '',
             password: '',
         });
-
         setImageUrl('');
         setFile(null);
-
-        onCancel(); // 모달을 닫는 함수 호출
+        onCancel();
     };
 
     const handleInputChange = (e) => {
@@ -90,16 +80,14 @@ export default function LoginModal({open,onOk,onCancel}){
             const response = await createMember(formData)
             message.success('회원가입 되었습니다.');
             handleCancel();
-
         } catch (error) {
-            console.error('Error creating post:', error);
+
         }
     };
 
     const handleLoginSubmit = async () => {
         try {
             const response = await loginMember(loginFormData)
-            console.log(response.memberId);
             localStorage.setItem('memberData', response.memberId);
             updateMemberData(response);
 
@@ -108,7 +96,6 @@ export default function LoginModal({open,onOk,onCancel}){
 
 
         } catch (error) {
-            console.error('Error creating post:', error);
         }
     };
     const onJoin = () => {
@@ -134,9 +121,7 @@ export default function LoginModal({open,onOk,onCancel}){
             }));
 
             }else if(info.file.status === 'error') {
-            // Handle error cases if needed
             setLoading(false);
-            console.error('File upload failed');
         }
     }
 
@@ -225,7 +210,7 @@ export default function LoginModal({open,onOk,onCancel}){
                                 <Button type="primary" style={{backgroundColor:"black", alignSelf: "flex-end" }} onClick={handleSubmit}>
                                     회원가입
                                 </Button>
-                                {isSignUpSuccess && ( // 추가: isSuccess 상태가 true인 경우에만 알림 창 표시
+                                {isSignUpSuccess && (
                                     <Alert message="Success Tips" type="success" showIcon />
                                 )}
                             </div>

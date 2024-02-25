@@ -16,10 +16,7 @@ function Post({getPostData,current,setCurrent,handleChange,selectedCategory}){
     const member = localStorage.getItem('memberData');
 
     const handleChangeInternal = async (value) => {
-        console.log(value);
         handleChange(value);
-
-
     };
 
     const { Meta } = Card;
@@ -27,19 +24,15 @@ function Post({getPostData,current,setCurrent,handleChange,selectedCategory}){
 
     const handleColClick = (post) => {
         if (!member) {
-            // member가 없으면 로그인 후 보세요 메시지를 띄웁니다.
             message.info('로그인 후에 이용할 수 있습니다.');
             return;
         }
-
-        console.log(post);
         navigate(`/post/${post.postId}`);
         setSelectedPost(post);
         setOpen(true);
     };
 
     const onChange = (page) => {
-        console.log(page);
         setCurrent(page);
     };
 

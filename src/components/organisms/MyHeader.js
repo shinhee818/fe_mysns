@@ -52,7 +52,6 @@ function MyHeader({postData,getPostRecentData}){
                 const data = await getMember(memberId);
                 setMember(data);
             } catch (error) {
-                console.error('Error fetching post:', error);
             }
         };
         fetchData();
@@ -84,15 +83,6 @@ function MyHeader({postData,getPostRecentData}){
                 </Col>
                 <Col span={12} style={{textAlign:"right"}}>
                     <div style={{display:"flex",alignItems:"center",justifyContent: "flex-end"}}>
-                        {/*<BellOutlined style={{fontSize:"35px", margin:"10px"}}/>*/}
-                        {/*<SearchOutlined style={{fontSize:"35px", margin:"10px"}}/>*/}
-                        {/*<Button type="primary"*/}
-                        {/*        style={{ borderRadius: "20px",height:"40px",backgroundColor:"white", fontWeight:"bold",color:"black",borderColor:"black"}}*/}
-                        {/*        onClick={showModal}>*/}
-                        {/*    새 글 작성*/}
-                        {/*</Button>*/}
-                        {/*<PostCreateModal open={open}*/}
-                        {/*                 onCancel={handleCancel} getPostData={getPostData} getPostRecentData={getPostRecentData}/>*/}
                         <Dropdown
                             menu={{
                                 items,

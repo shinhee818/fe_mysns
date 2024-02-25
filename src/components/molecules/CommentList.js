@@ -29,13 +29,8 @@ export default function CommentList({fetchCommentData,comment}){
             setEditingCommentId(null);
             setEditedComment("");
         } catch (error) {
-            console.error("댓글 수정 실패:", error);
         }
     };
-
-
-
-
 
     useEffect(() => {
         fetchCommentData();
@@ -46,9 +41,7 @@ export default function CommentList({fetchCommentData,comment}){
         try {
             const response = await deleteComment(commentId,memberId);
             message.success('삭제되었습니다.');
-
             fetchCommentData()
-            console.log('API 호출 성공:', response);
         } catch (error) {
         }
     };

@@ -6,12 +6,12 @@ export const SuccessAlert = ({ visible,onClose }) =>{
         let timer;
         if (visible) {
             timer = setTimeout(() => {
-                onClose(); // Alert가 닫힌 후 호출될 함수
-            }, 1000); // 3000 밀리초 (3초) 후에 Alert를 닫음
+                onClose();
+            }, 1000);
         }
 
         return () => {
-            clearTimeout(timer); // 컴포넌트가 언마운트되면 타이머를 정리
+            clearTimeout(timer);
         };
     }, [visible, onClose]);
 

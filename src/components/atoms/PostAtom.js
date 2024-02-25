@@ -71,20 +71,15 @@ export const MenuBtn = ({postId,post,getMemberPostData,onClose}) =>{
     };
     const handleAlertClose = () => {
         setShowAlert(false);
-        // 여기에 Alert가 닫힌 후 실행될 로직을 추가할 수 있습니다.
     };
 
     const onDeleteClick = async () => {
         try {
-            console.log(postId);
-            // postId를 사용하여 해당 포스트를 삭제
             await deletePost(postId);
             setShowAlert(true);
             onClose();
             getMemberPostData();
-            console.log('Post deleted successfully:');
         } catch (error) {
-            console.error('Error deleting post:', error);
         }
     };
 

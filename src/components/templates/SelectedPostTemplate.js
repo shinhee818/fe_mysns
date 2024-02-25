@@ -19,7 +19,6 @@ export default function SelectedPostTemplate({postData,fetchData}){
             const data = await getLikeCount(postData.postId);
             setLike(data);
         } catch (error) {
-            console.error('Error fetching post:', error);
         }
     };
 
@@ -34,7 +33,6 @@ export default function SelectedPostTemplate({postData,fetchData}){
                 const data = await getLikePostId(postData.memberId);
                 setIstHeartClick(data.includes(postData.postId));
             } catch (error) {
-                console.error('Error fetching post:', error);
             }
         };
         fetchData();
@@ -45,29 +43,20 @@ export default function SelectedPostTemplate({postData,fetchData}){
 
     }
     const handleClick = async () => {
-
         try {
             const response = await likePost({memberId:member,postId:postData.postId} );
             setIstHeartClick(true);
             fetchLikeData();
-
-
         } catch (error) {
-            console.error('API 호출 실패:', error);
         }
     };
-    console.log(postData.postId)
 
     const onDeleteClick = async () => {
 
         try {
             const response= await deletePost(postData.postId);
             navigate("/main");
-            console.log(response)
-
-            console.log('Post deleted successfully:');
         } catch (error) {
-            console.error('Error deleting post:', error);
         }
     };
 
@@ -79,16 +68,8 @@ export default function SelectedPostTemplate({postData,fetchData}){
         setIsModalOpen(false);
     };
 
-
-
-
-
-
-
-
     return(
         <div style={{ display: 'flex', width: '80%' }}>
-            {/* Sidebar */}
             <div
                 style={{ width: '50px',
                     backgroundColor: '#FFFFFF',
@@ -110,17 +91,11 @@ export default function SelectedPostTemplate({postData,fetchData}){
                     justifyContent: 'center',
                     color: isHeartClick ? 'red' : 'black'}}>
                     <HeartOutlined  onClick={handleClick}/>
-
                 </div>
-
-
                 <div style={{fontSize:"30px"}}>
                     {like}
                 </div>
-
             </div>
-
-            {/* Main Content */}
             <div style={{ flex: 1, padding: '20px',marginLeft: '140px' }}>
                 <div style={{ display: 'flex' }}>
                     <PostHeader data={postData} />
@@ -140,8 +115,6 @@ export default function SelectedPostTemplate({postData,fetchData}){
                 <InputModal visible={isModalOpen} isOk = {handleOk} post={postData}/>
                 <ProfileBottom postData={postData}></ProfileBottom>
                 <Comment postData={postData} fetchData={fetchData}/>
-
-
             </div>
         </div>
     );

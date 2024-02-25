@@ -19,7 +19,6 @@ function PostPage(){
             const data = await getPosts(current - 1,'VIEWS');
             updatePostData(data);
         } catch (error) {
-            console.error('Error fetching post:', error);
         }
     };
 
@@ -28,7 +27,6 @@ function PostPage(){
             const data = await getPosts(recentCurrent - 1,'RECENT');
             updateRecentPostData(data);
         } catch (error) {
-            console.error('Error fetching post:', error);
         }
     };
 
@@ -41,16 +39,16 @@ function PostPage(){
 
                 defaultActiveKey="1"
                 items={[
-                    {
-                        label: (
-                            <div>
-                                <HeartOutlined style={{ marginRight: '8px' }} />
-                                좋아요순
-                            </div>
-                        ),
-                        key: '1',
-                        children: <Post getPostData={fetchData} current={current} setCurrent={setCurrent}/>,
-                    },
+                    // {
+                    //     label: (
+                    //         <div>
+                    //             <HeartOutlined style={{ marginRight: '8px' }} />
+                    //             좋아요순
+                    //         </div>
+                    //     ),
+                    //     key: '1',
+                    //     children: <Post getPostData={fetchData} current={current} setCurrent={setCurrent}/>,
+                    // },
                     {
                         label: (
                             <div>

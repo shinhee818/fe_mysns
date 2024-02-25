@@ -22,7 +22,6 @@ export function MyProfile({member}){
             const data = await getMember(member.memberId);
             setMember(data)
         } catch (error) {
-            console.error('Error fetching post:', error);
         }
     };
 
@@ -39,10 +38,8 @@ export function MyProfile({member}){
             setEditMode(false);
             await updateMember(member.memberId, {memberName : editedName,age:editedAge});
             fetchMemberData();
-            console.log('멤버 정보가 성공적으로 업데이트되었습니다.');
 
         } catch (error) {
-            console.error('멤버 정보 업데이트 실패:', error);
         }
     };
     const handleEditClick = () => {

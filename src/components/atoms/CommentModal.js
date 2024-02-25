@@ -4,14 +4,12 @@ import {updateComment} from "../api/CommentApi";
 const CommentModal = ({visible,onClose,comment,getComment}) => {
     const [contentValue, setContentValue] = useState(comment.content);
     const memberId = localStorage.getItem('memberData');
-    console.log(comment);
 
 
     const handleCommentChange = (e) => {
         setContentValue(e.target.value);
     };
     const updateClick = async () => {
-        console.log(comment)
         try {
             await updateComment(comment.commentId, { comment: contentValue,memberId:memberId });
             getComment();

@@ -4,7 +4,6 @@ import { Button, Checkbox, Form, Input } from 'antd';
 
 export default function LoginPage(){
     const onFinish = (values) => {
-        console.log('Received values of form: ', values);
     };
     return (
         <Form

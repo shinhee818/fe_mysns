@@ -14,14 +14,12 @@ export default function MyPosts(){
     const { Meta } = Card;
     const navigate = useNavigate();
     const onChange = (page) => {
-        console.log(page);
         setCurrent(page);
     };
     const onClose=()=>{
         setOpen(false)
     }
     const handleColClick = (post) => {
-        console.log(post)
         navigate(`/post/${post.postId}`)
 
         setSelectedPost(post);
@@ -33,7 +31,6 @@ export default function MyPosts(){
             const data = await getMemberPost(current - 1);
             setPostData(data);
         } catch (error) {
-            console.error('Error fetching post:', error);
         }
     };
 

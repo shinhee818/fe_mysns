@@ -25,18 +25,12 @@ export default function PostCreateModal({open,onCancel,getPostData,getPostRecent
             return;
         }
         if (info.file.status === 'done') {
-
             const serverResponse = info.file.response;
-
-
             setLoading(false);
-
             setImageUrl(serverResponse);
-            console.log(serverResponse)
         } else if (info.file.status === 'error') {
-            // Handle error cases if needed
             setLoading(false);
-            console.error('File upload failed');
+
         }
     };
 
@@ -84,7 +78,6 @@ export default function PostCreateModal({open,onCancel,getPostData,getPostRecent
                 ]
             };
             await createPost(createPostData);
-            console.log(createPostData);
             updatePostData(createPostData);
 
             message.success('성공적으로 생성되었습니다.');
@@ -94,7 +87,6 @@ export default function PostCreateModal({open,onCancel,getPostData,getPostRecent
             onCancel();
 
         } catch (error) {
-            console.error('Error creating post:', error);
         }
     };
     return(

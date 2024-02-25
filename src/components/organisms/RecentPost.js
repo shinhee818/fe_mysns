@@ -15,7 +15,6 @@ function RecentPost({getPostData,current,setCurrent,handleRecentChange,selectedC
     const navigate = useNavigate();
 
     const handleChangeInternal = (value) => {
-        console.log(value);
         handleRecentChange(value);
         getPostData();
     };
@@ -23,11 +22,9 @@ function RecentPost({getPostData,current,setCurrent,handleRecentChange,selectedC
 
 
     const onChange = (page) => {
-        console.log(page);
         setCurrent(page);
     };
     const handleColClick = (post) => {
-        console.log(post)
         navigate(`/post/${post.postId}`)
 
         setSelectedPost(post);

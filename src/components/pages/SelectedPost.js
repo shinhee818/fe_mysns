@@ -10,10 +10,8 @@ export default function SelectedPost(){
     const fetchData = async () => {
         try {
             const data = await getPost(postId);
-            console.log(data);
             setPostData(data);
         } catch (error) {
-            console.error('Error fetching post:', error);
         }
     };
     useEffect(() => {
@@ -30,17 +28,9 @@ export default function SelectedPost(){
 
         <div style={{ width: '100%', paddingBottom: '10px', paddingTop: '50px'  }}>
             <MyHeader postData={postData}/>
-            <div style={{display:"flex",justifyContent: 'center',
-                alignItems: 'center'}}>
+            <div style={{display:"flex",justifyContent: 'center', alignItems: 'center'}}>
                 <SelectedPostTemplate postData={postData} fetchData={fetchData}/>
-
             </div>
-
-
-
-
-
-
         </div>
 
     )

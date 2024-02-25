@@ -54,7 +54,6 @@ function MainHeader({getPostData,getPostRecentData}){
                 const data = await getMember(memberId);
                 setMember(data);
             } catch (error) {
-                console.error('Error fetching post:', error);
             }
         };
         fetchData();

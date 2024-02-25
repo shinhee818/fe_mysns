@@ -11,7 +11,7 @@ export default function Comment({postData}){
     const commentClick = async () => {
         try {
             const response = await createComment({comment:value,postId:postData.postId,memberId:memberId} );
-            console.log('API 호출 성공:', response);
+
             fetchCommentData();
             setValue("");
         } catch (error) {

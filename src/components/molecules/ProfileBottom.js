@@ -10,9 +10,7 @@ export default function ProfileBottom({postData}){
             try {
                 const data = await getMember(postData.memberId);
                 setMember(data);
-                console.log(data);
             } catch (error) {
-                console.error('Error fetching post:', error);
             }
         };
         fetchData();

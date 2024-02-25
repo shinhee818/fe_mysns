@@ -7,20 +7,16 @@ const InputModal = ({visible,isOk,post,fetchData}) => {
 
     const handleContentChange = (e) => {
         setContentValue(e.target.value);
-        console.log(contentValue);
     };
     const handleTitleChange = (e) => {
         setTitleValue(e.target.value);
-        console.log(titleValue);
     };
     const updateClick = async () => {
         try {
-            // 새로운 내용과 함께 게시물을 업데이트하는 API를 호출합니다.
             await updatePost(post.postId, { content: contentValue, title:titleValue});
             fetchData();
             isOk();
         } catch (error) {
-            console.error('게시물 업데이트 중 오류 발생:', error);
         }
     };
 

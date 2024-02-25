@@ -29,7 +29,6 @@ function MainPostPage(){
             const data = await getPosts(current - 1,'VIEWS',selectedCategory);
             updatePostData(data);
         } catch (error) {
-            console.error('Error fetching post:', error);
         }
     };
 
@@ -40,7 +39,6 @@ function MainPostPage(){
             const data = await getPosts(recentCurrent - 1,'RECENT',selectedRecentCategory);
             updateRecentPostData(data);
         } catch (error) {
-            console.error('Error fetching post:', error);
         }
     };
 
@@ -53,16 +51,16 @@ function MainPostPage(){
 
                 defaultActiveKey="1"
                 items={[
-                    {
-                        label: (
-                            <div>
-                                <HeartOutlined style={{ marginRight: '8px' }} />
-                                좋아요순
-                            </div>
-                        ),
-                        key: '1',
-                        children: <Post getPostData={fetchData} current={current} setCurrent={setCurrent} selectedCategory={selectedCategory} handleChange={handleChange}/>,
-                    },
+                    // {
+                    //     label: (
+                    //         <div>
+                    //             <HeartOutlined style={{ marginRight: '8px' }} />
+                    //             좋아요순
+                    //         </div>
+                    //     ),
+                    //     key: '1',
+                    //     children: <Post getPostData={fetchData} current={current} setCurrent={setCurrent} selectedCategory={selectedCategory} handleChange={handleChange}/>,
+                    // },
                     {
                         label: (
                             <div>
