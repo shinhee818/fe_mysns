@@ -43,7 +43,7 @@ export function MyPostPage(){
                 <Flex gap="middle" wrap="wrap">
                     <Layout style={layoutStyle}>
                         <Header style={headerStyle}>
-                            <MyImg imageUrl = {member.url?`http://localhost:8080/images/${member.url}`: my} style={{width:"250px",height:"250px"}}/>
+                            <MyImg imageUrl = {member.url?`http://localhost:8080/images/${member.url}`: my} style={{width:"200px",height:"200px"}}/>
                             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
                                 <div style={{ fontSize:"100px" }}>{member.memberName}</div>
                             </div>

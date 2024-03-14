@@ -25,10 +25,10 @@ function App() {
                       <BrowserRouter>
 
                               <Routes>
-                                  <Route path="/" element={<PostPage/>}></Route>
+                                  {/*<Route path="/" element={<PostPage/>}></Route>*/}
                                   <Route path="/main" element={<MainPostPage/>}></Route>
                                   <Route path="/mypost" element={<MyPostPage style={{justifyContent:"center"}}/>}></Route>
-                                  <Route path="/login" element={<LoginPage/>}></Route>
+                                  <Route path="/" element={<LoginPage/>}></Route>
                                   <Route path="/profile" element={<MyProfilePage/>}></Route>
                                   <Route path="/post/:postId" element={<SelectedPost/>}></Route>
                               </Routes>
